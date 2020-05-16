@@ -42,18 +42,27 @@ class UserManager(BaseUserManager):
 
 class CustomUser(AbstractUser):
 
-   # CHOICES = (
-    #    ('H', 'Hospital'),
-     #   ('C', 'Clinic'),
-       
-    #)
-    role = models.CharField(max_length=10)      
+    CHOICES = (
+        ('H', 'Hospital'),
+        ('C', 'Clinic'),
+    )
+    role = models.CharField(max_length=10, choices=CHOICES)      
     phone = models.CharField(max_length=12, default = "")
     email = models.EmailField(
         verbose_name='email address',
         max_length=255,
         unique=True
         )
+
+    name = models.CharField(max_length=100,unique=True, null=True)
+    registration_no = models.CharField(max_length=100,unique=True, null=True)
+    address = models.CharField(max_length=200, null=True)
+    address2 = models.CharField(max_length=200, null=True)
+    city = models.CharField(max_length=50, null=True)
+    district = models.CharField(max_length=50, null=True)
+    state = models.CharField(max_length=50, null=True)
+    pincode = models.IntegerField(null=True)
+
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
@@ -91,11 +100,9 @@ class Hospital(models.Model):
         CustomUser, on_delete=models.CASCADE, related_name="hospital_account"
     )
     #new
-    name = models.CharField(max_length=100,unique=True)
-    registration_no = models.CharField(max_length=100,unique=True)
-    address = models.CharField(max_length=200)
-    phone = models.CharField(max_length=12)
-    beds = models.IntegerField()
+    
+    def __str__(self):
+        return self.user.name
 
 
 class Clinic(models.Model):
@@ -104,7 +111,8 @@ class Clinic(models.Model):
         CustomUser, on_delete=models.CASCADE, related_name="clinic_account"
     )
     #new
-    name = models.CharField(max_length=100)
-    registration_no = models.CharField(max_length=100,unique=True)
-    address = models.CharField(max_length=200)
-    phone = models.CharField(max_length=13)
+
+    def __str__(self):
+        return self.user.name
+    
+
