@@ -1,5 +1,6 @@
 from django.db import models
 from datetime import datetime, timedelta
+import csv
 
 
 # Create your models here.
@@ -29,6 +30,29 @@ class Diseases(models.Model):
          self.Expected_recovery_date=self.CaseDate + days
         super(Diseases, self).save(force_insert, force_update, *args, **kwargs)
 
+        objects = Diseases.objects.all()
+        fields = Diseases._meta.get_field()
+        modeltocsv(objects, fields)
+
+        
+    # added the func to convert sqltable to csv data
+     
+    def modeltocsv(self, objects, fields):
+
+        filename = "data.csv"
+        
+
+        for obj in objects:
+            row = []
+            for field in fields:
+                row.append(getattr(obj, field))
+            
+            with open(filename, 'o') as csvfile:
+                csvwriter = csv.writer(csvfile)
+                csvwriter.writerow(fields)
+                csvwriter.writerows(row)
+
+                
 
 class alert(models.Model):
     message=models.CharField(max_length=200)
