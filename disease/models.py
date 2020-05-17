@@ -19,13 +19,13 @@ class Diseases(models.Model):
     state = models.CharField(max_length=50, null=True)
     pincode = models.IntegerField(null=True)
     CaseDate=models.DateField(auto_now=True)
-    Expected_recovery_data=models.DateTimeField(blank=True)
+    Expected_recovery_date=models.DateTimeField(blank=True)
     threat_level=models.CharField(max_length=20,choices=CHOICES)
     
 
     def save(self, force_insert=False, force_update=False, *args, **kwargs):
         days=timedelta(days=self.recoveryperiod)
-        self.Expected_recovery_data=self.CaseDate + days
+        self.Expected_recovery_date=self.CaseDate + days
         super(Diseases, self).save(force_insert, force_update, *args, **kwargs)
 
 
