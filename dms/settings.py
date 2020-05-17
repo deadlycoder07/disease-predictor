@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'authentication',
     'allauth',
+    'disease',
+    
 ]
 SITE_ID = 1
 MIDDLEWARE = [
