@@ -32,7 +32,7 @@ def logoutView(request):
         return redirect('authentication:login')
     else:
         logout(request)
-        return redirect("/")
+        return redirect('/')
 
 
 # Register View
