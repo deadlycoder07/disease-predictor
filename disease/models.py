@@ -30,13 +30,21 @@ class Diseases(models.Model):
          self.Expected_recovery_date=self.CaseDate + days
         super(Diseases, self).save(force_insert, force_update, *args, **kwargs)
 
-        filename = "data.csv"
+        objects = Diseases.objects.all()
         fields = Diseases._meta.get_field()
+        modeltocsv(objects, fields)
 
-        for obj in Diseases.objects.all():
+        
+    # added the func to convert sqltable to csv data
+     
+    def modeltocsv(self, objects, fields):
+
+        filename = "data.csv"
+        
+
+        for obj in objects:
             row = []
             for field in fields:
-
                 row.append(getattr(obj, field))
             
             with open(filename, 'o') as csvfile:
