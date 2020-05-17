@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser,BaseUserManager
+from django.contrib.auth.models import AbstractBaseUser,BaseUserManager
 # Create your models here.
 
 class UserManager(BaseUserManager):
@@ -39,7 +39,7 @@ class UserManager(BaseUserManager):
         user.save(using=self.db)
         return user
 
-class CustomUser(AbstractUser):
+class CustomUser(AbstractBaseUser):
 
     CHOICES = (
         ('H', 'Hospital'),
