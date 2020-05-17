@@ -17,9 +17,11 @@ class ClinicInfoForm(forms.ModelForm):
     class Meta:
         model = Clinic
         fields = "__all__"
-
+        exclude=['user']
+        
 class HospitalInfoForm(forms.ModelForm):
+    
     class Meta:
         model = Hospital
         fields = "__all__"
-        exclude = ['user']
+        exclude = ['user']  
