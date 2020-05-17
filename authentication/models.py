@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser,BaseUserManager
+from django.contrib.auth.models import AbstractBaseUser,BaseUserManager
 # Create your models here.
 
 class UserManager(BaseUserManager):
@@ -8,7 +8,7 @@ class UserManager(BaseUserManager):
     https://docs.djangoproject.com/en/3.0/topics/auth/customizing/#writing-a-manager-for-a-custom-user-model
     https://docs.djangoproject.com/en/3.0/topics/auth/customizing/#a-full-example
     '''
-    def create_user(self, email,phone,role,password=None):
+    def create_user(self, email,phone,password=None):
         """
         Create and return a `User` with an email, username and password.
         """
@@ -19,7 +19,6 @@ class UserManager(BaseUserManager):
             email=self.normalize_email(email),
         )
         user.phone=phone
-        user.role=role
         user.set_password(password)
         user.save(using=self._db)
         return user
@@ -39,13 +38,13 @@ class UserManager(BaseUserManager):
         user.save(using=self.db)
         return user
 
-class CustomUser(AbstractUser):
+class CustomUser(AbstractBaseUser):
 
     CHOICES = (
         ('H', 'Hospital'),
         ('C', 'Clinic'),
     )
-    role = models.CharField(max_length=10, choices=CHOICES)      
+    role = models.CharField(max_length=10)      
     phone = models.CharField(max_length=12, default = "")
     email = models.EmailField(
         verbose_name='email address',

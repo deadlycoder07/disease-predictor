@@ -36,7 +36,7 @@ def logoutView(request):
 
 
 # Register View
-@login_required(login_url = 'authentication:login')
+#@login_required(login_url = 'authentication:login')
 def registerView(request, role):
     
     if request.user.is_authenticated:
