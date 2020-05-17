@@ -24,9 +24,9 @@ class Diseases(models.Model):
     
 
     def save(self, force_insert=False, force_update=False, *args, **kwargs):
-        if self.recoveryperiod:
-         days=timedelta(days=self.recoveryperiod)
-         self.Expected_recovery_date=self.CaseDate + days
+        if not self.recoveryperiod:
+          days=timedelta(days=self.recoveryperiod)
+          self.Expected_recovery_date=self.CaseDate + days
         super(Diseases, self).save(force_insert, force_update, *args, **kwargs)
 
 
