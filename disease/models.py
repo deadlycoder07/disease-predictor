@@ -1,5 +1,6 @@
 from django.db import models
 from datetime import datetime, timedelta
+import csv
 
 
 # Create your models here.
@@ -28,4 +29,19 @@ class Diseases(models.Model):
         self.Expected_recovery_date=self.CaseDate + days
         super(Diseases, self).save(force_insert, force_update, *args, **kwargs)
 
+        filename = "data.csv"
+        fields = Diseases._meta.get_field()
+
+        for obj in Diseases.objects.all():
+            row = []
+            for field in fields:
+
+                row.append(getattr(obj, field))
+            
+            with open(filename, 'o') as csvfile:
+                csvwriter = csv.writer(csvfile)
+                csvwriter.writerow(fields)
+                csvwriter.writerows(row)
+
+                
 
