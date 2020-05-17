@@ -22,7 +22,7 @@ SECRET_KEY = 'c#bm1$q#4-c*-hm-lio@uc)t=gzh=qk!)#ost-vy$o&b$6kmqk'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['aidoc.azurewebsites.net','127.0.0.1']
+ALLOWED_HOSTS = ['aidoc.azurewebsites.net','127.0.0.1', 'localhost']
 
 
 # Application definition
