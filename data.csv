@@ -1,13 +1,2 @@
-disease.Diseases.id,disease.Diseases.disease,disease.Diseases.symptoms,disease.Diseases.recoveryperiod,disease.Diseases.medications,disease.Diseases.address,disease.Diseases.city,disease.Diseases.district,disease.Diseases.state,disease.Diseases.pincode,disease.Diseases.CaseDate,disease.Diseases.threat_level
-n,u,l,l
-n,u,l,l
-n,u,l,l
-n,u,l,l
-n,u,l,l
-n,u,l,l
-n,u,l,l
-n,u,l,l
-n,u,l,l
-n,u,l,l
-n,u,l,l
-n,u,l,l
+id,disease,symptoms,recoveryperiod,medications,address,city,district,state,pincode,CaseDate,Expected_recovery_date,threat_level
+b'1',b'flu',b'cough',b'1',b'paracetamol',b'somewhre',b'howrah',b'howrah',b'wb',b'711322',b'2020-05-18',b'2020-05-19',b'I'

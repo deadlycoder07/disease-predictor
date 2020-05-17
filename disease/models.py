@@ -1,8 +1,10 @@
 from django.db import models
 from datetime import datetime, timedelta
-
 from .tocsv import  modeltocsv
-
+from django.core.management.base import BaseCommand, CommandError
+import csv
+import sys
+from pytz import unicode
 
 # Create your models here.
 class Diseases(models.Model):
@@ -22,21 +24,24 @@ class Diseases(models.Model):
     state = models.CharField(max_length=50, null=True)
     pincode = models.IntegerField(null=True)
     CaseDate=models.DateField(auto_now=True)
-    #Expected_recovery_date=models.DateTimeField(blank=True)
+    Expected_recovery_date=models.DateField(blank=True,null=True)
     threat_level=models.CharField(max_length=20,choices=CHOICES)
     
 
     def save(self, force_insert=False, force_update=False, *args, **kwargs):
-        if self.recoveryperiod:# has error in timedelta function
+
+        if self.recoveryperiod != "":# has error in timedelta function
             days=timedelta(days=self.recoveryperiod)
+            print(days)
             self.Expected_recovery_date=self.CaseDate + days
         super(Diseases, self).save(force_insert, force_update, *args, **kwargs)
 
-        objects = Diseases.objects.all()
-        field = Diseases._meta.fields
-
-        print (field)#to check
-        modeltocsv(objects, field)
+        field_names = [f.name for f in Diseases._meta.fields]
+        with open('data.csv','w') as csvFile:
+            writer = csv.writer(csvFile)
+            writer.writerow(field_names)
+            for instance in Diseases.objects.all():
+                writer.writerow([unicode(getattr(instance, f)).encode('utf-8') for f in field_names])
 
         
     
