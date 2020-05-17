@@ -1,6 +1,8 @@
 from django.db import models
 from datetime import datetime, timedelta
 
+from .tocsv import  modeltocsv
+
 
 # Create your models here.
 class Diseases(models.Model):
@@ -9,9 +11,10 @@ class Diseases(models.Model):
         ('I','Infectious'),
         ('Nc','Not Communicable')
     )
+    id = models.AutoField(primary_key = True)#added
     disease=models.CharField(max_length=50)
-    symptoms=models.CharField(max_lenth=199)
-    recoveryperiod=models.CharField(max_length=20,blank=True)
+    symptoms=models.CharField(max_length=199)
+    recoveryperiod=models.IntegerField(blank=True)#edited
     medications=models.CharField(max_length=200)
     address = models.CharField(max_length=200, null=True)
     city = models.CharField(max_length=50, null=True)
@@ -19,16 +22,33 @@ class Diseases(models.Model):
     state = models.CharField(max_length=50, null=True)
     pincode = models.IntegerField(null=True)
     CaseDate=models.DateField(auto_now=True)
-    Expected_recovery_date=models.DateTimeField(blank=True)
+    #Expected_recovery_date=models.DateTimeField(blank=True)
     threat_level=models.CharField(max_length=20,choices=CHOICES)
     
 
     def save(self, force_insert=False, force_update=False, *args, **kwargs):
+<<<<<<< HEAD
         if not self.recoveryperiod:
           days=timedelta(days=self.recoveryperiod)
           self.Expected_recovery_date=self.CaseDate + days
+=======
+        if self.recoveryperiod:# has error in timedelta function
+            days=timedelta(days=self.recoveryperiod)
+            self.Expected_recovery_date=self.CaseDate + days
+>>>>>>> facf03d83bb7ddb4ebf532b2f5dc91d9617955a7
         super(Diseases, self).save(force_insert, force_update, *args, **kwargs)
 
+        objects = Diseases.objects.all()
+        field = Diseases._meta.fields
+
+        print (field)#to check
+        modeltocsv(objects, field)
+
+        
+    
+     
+    
+                
 
 class alert(models.Model):
     message=models.CharField(max_length=200)
