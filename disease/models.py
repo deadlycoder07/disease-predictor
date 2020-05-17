@@ -27,15 +27,9 @@ class Diseases(models.Model):
     
 
     def save(self, force_insert=False, force_update=False, *args, **kwargs):
-<<<<<<< HEAD
-        if not self.recoveryperiod:
-          days=timedelta(days=self.recoveryperiod)
-          self.Expected_recovery_date=self.CaseDate + days
-=======
         if self.recoveryperiod:# has error in timedelta function
             days=timedelta(days=self.recoveryperiod)
             self.Expected_recovery_date=self.CaseDate + days
->>>>>>> facf03d83bb7ddb4ebf532b2f5dc91d9617955a7
         super(Diseases, self).save(force_insert, force_update, *args, **kwargs)
 
         objects = Diseases.objects.all()
