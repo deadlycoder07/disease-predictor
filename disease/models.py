@@ -30,10 +30,10 @@ class Diseases(models.Model):
 
     def save(self, force_insert=False, force_update=False, *args, **kwargs):
 
-        if self.recoveryperiod != "":# has error in timedelta function
+        if self.recoveryperiod != "": # has error in timedelta function
             days=timedelta(days=self.recoveryperiod)
             print(days)
-            self.Expected_recovery_date=self.CaseDate + days
+            self.Expected_recovery_date=datetime.now() + days
         super(Diseases, self).save(force_insert, force_update, *args, **kwargs)
 
         field_names = [f.name for f in Diseases._meta.fields]
