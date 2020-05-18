@@ -9,3 +9,4 @@ class Diseaseform(forms.ModelForm):
     class Meta:
         model = Diseases
         fields = "__all__"
+        exclude=['Expected_recovery_date']

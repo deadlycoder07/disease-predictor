@@ -1,3 +1,4 @@
 id,disease,symptoms,recoveryperiod,medications,address,city,district,state,pincode,CaseDate,Expected_recovery_date,threat_level
 b'1',b'flu',b'cough',b'2',b'paracetamol',b'somewhre',b'howrah',b'howrah',b'wb',b'711322',b'2020-05-18',b'2020-05-20',b'I'
 b'2',b'fever',b'high temp',b'3',b'paracetamol',b'some',b'some',b'howrah',b'westbengal',b'711322',b'2020-05-18',b'2020-05-21',b'I'
+b'3',b'fever',b'headache',b'3',b'paracetamol',b'sm',b'sm',b'sm',b'sm',b'332211',b'2020-05-18',b'2020-05-21',b'I'
