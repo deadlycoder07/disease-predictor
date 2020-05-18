@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser,BaseUserManager
+from django.contrib.auth.models import AbstractBaseUser,BaseUserManager
 # Create your models here.
 
 class UserManager(BaseUserManager):
@@ -8,7 +8,7 @@ class UserManager(BaseUserManager):
     https://docs.djangoproject.com/en/3.0/topics/auth/customizing/#writing-a-manager-for-a-custom-user-model
     https://docs.djangoproject.com/en/3.0/topics/auth/customizing/#a-full-example
     '''
-    def create_user(self, email,phone,role,username,password=None):
+    def create_user(self, email,phone,password=None):
         """
         Create and return a `User` with an email, username and password.
         """
@@ -19,8 +19,6 @@ class UserManager(BaseUserManager):
             email=self.normalize_email(email),
         )
         user.phone=phone
-        user.role=role
-        user.username=username
         user.set_password(password)
         user.save(using=self._db)
         return user
@@ -40,13 +38,12 @@ class UserManager(BaseUserManager):
         user.save(using=self.db)
         return user
 
-class CustomUser(AbstractUser):
+class CustomUser(AbstractBaseUser):
 
-   # CHOICES = (
-    #    ('H', 'Hospital'),
-     #   ('C', 'Clinic'),
-       
-    #)
+    CHOICES = (
+        ('H', 'Hospital'),
+        ('C', 'Clinic'),
+    )
     role = models.CharField(max_length=10)      
     phone = models.CharField(max_length=12, default = "")
     email = models.EmailField(
@@ -54,6 +51,7 @@ class CustomUser(AbstractUser):
         max_length=255,
         unique=True
         )
+
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
@@ -65,7 +63,7 @@ class CustomUser(AbstractUser):
     objects = UserManager()
 
     def __str__(self):
-        return self.email + ", " + self.username
+        return self.email 
 
     def is_admin(self):
         return self.is_superuser
@@ -91,11 +89,17 @@ class Hospital(models.Model):
         CustomUser, on_delete=models.CASCADE, related_name="hospital_account"
     )
     #new
-    name = models.CharField(max_length=100,unique=True)
-    registration_no = models.CharField(max_length=100,unique=True)
-    address = models.CharField(max_length=200)
-    phone = models.CharField(max_length=12)
-    beds = models.IntegerField()
+    name = models.CharField(max_length=100,unique=True, null=True)
+    registration_no = models.CharField(max_length=100,unique=True, null=True)
+    address = models.CharField(max_length=200, null=True)
+    address2 = models.CharField(max_length=200, null=True)
+    city = models.CharField(max_length=50, null=True)
+    district = models.CharField(max_length=50, null=True)
+    state = models.CharField(max_length=50, null=True)
+    pincode = models.IntegerField(null=True)
+
+    def __str__(self):
+        return self.name
 
 
 class Clinic(models.Model):
@@ -104,7 +108,17 @@ class Clinic(models.Model):
         CustomUser, on_delete=models.CASCADE, related_name="clinic_account"
     )
     #new
-    name = models.CharField(max_length=100)
-    registration_no = models.CharField(max_length=100,unique=True)
-    address = models.CharField(max_length=200)
-    phone = models.CharField(max_length=13)
+    name = models.CharField(max_length=100,unique=True, null=True)
+    registration_no = models.CharField(max_length=100,unique=True, null=True)
+    address = models.CharField(max_length=200, null=True)
+    address2 = models.CharField(max_length=200, null=True)
+    city = models.CharField(max_length=50, null=True)
+    district = models.CharField(max_length=50, null=True)
+    state = models.CharField(max_length=50, null=True)
+    pincode = models.IntegerField(null=True)
+
+
+    def __str__(self):
+        return self.name
+    
+
