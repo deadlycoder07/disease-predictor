@@ -41,7 +41,7 @@ class Diseases(models.Model):
             writer = csv.writer(csvFile)
             writer.writerow(field_names)
             for instance in Diseases.objects.all():
-                writer.writerow([unicode(getattr(instance, f)).encode('utf-8') for f in field_names])
+                writer.writerow([getattr(instance, f) for f in field_names])
 
         
     
@@ -55,3 +55,4 @@ class alert(models.Model):
     symptoms=models.CharField(max_length=200)
     people_affected=models.IntegerField()
     people_recovered=models.IntegerField(blank=True)
+    precautions=models.CharField(max_length=199,null=True,blank=True)
