@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'authentication',
     'allauth',
     'disease',
+    'ml'
     
 ]
 SITE_ID = 1
