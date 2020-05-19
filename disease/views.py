@@ -6,9 +6,12 @@ from .forms import Diseaseform, Symptomform
 
 
 # Create your views here.
+def home(request):
+    return render(request, 'disease/base.html')
 
+    
 def thanks(request):
-    return render(request, 'disease, thanks.html')
+    return render(request, 'disease/thanks.html')
 
     
 def diseaseview(request):
@@ -38,7 +41,18 @@ def usercheckview(request):
 def analysis(request):
     symp = symptoms.objects.all()
     field = symptoms._meta.fields
-    print(field)
-    print(symp)
+    
+    data = str(getattr(symp, str(field), "null"))
+    #print(field)
+    #print(symp)
+    
+    if("," in data):
+        data = data.split(",")
+    else:
+        data = data.strip(" ")
+
+    #data is available for analysis
+    symptoms.objects.all().delete()
+
     return render(request, 'disease/analysis.html')
 

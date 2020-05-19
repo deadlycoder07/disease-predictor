@@ -59,6 +59,7 @@ class alert(models.Model):
 
 
 class symptoms(models.Model):
+    id = models.AutoField(primary_key = True)
     symptom = models.TextField()
 
-    
+
