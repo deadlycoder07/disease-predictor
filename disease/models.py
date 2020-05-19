@@ -1,6 +1,6 @@
 from django.db import models
 from datetime import datetime, timedelta
-from .tocsv import  modeltocsv
+#from .tocsv import  modeltocsv
 from django.core.management.base import BaseCommand, CommandError
 import csv
 import sys
@@ -56,3 +56,9 @@ class alert(models.Model):
     people_affected=models.IntegerField()
     people_recovered=models.IntegerField(blank=True)
     precautions=models.CharField(max_length=199,null=True,blank=True)
+
+
+class symptoms(models.Model):
+    symptom = models.TextField()
+
+    
