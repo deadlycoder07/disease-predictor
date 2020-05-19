@@ -6,9 +6,12 @@ from .forms import Diseaseform, Symptomform
 
 
 # Create your views here.
+def home(request):
+    return render(request, 'disease/base.html')
 
+    
 def thanks(request):
-    return render(request, 'disease, thanks.html')
+    return render(request, 'disease/thanks.html')
 
     
 def diseaseview(request):
