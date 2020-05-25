@@ -4,13 +4,20 @@ from .models import Diseases, symptoms,alert
 from .forms import Diseaseform, Symptomform
 
 
-# Create your views here.
 def home(request):
     context={}
     alerts=alert.objects.all().order_by('affected_by')
     context['alerts']=alerts
     return render(request, 'disease/home.html',context)
 
+def contact(request):
+    return render(request, 'disease/contact.html')
+
+def aboutus(request):
+    return render(request, "disease/aboutus.html")
+
+def privacy(request):
+    return render(request, 'disease/privacy.html')
     
 def thanks(request):
     return render(request, 'disease/thanks.html')
