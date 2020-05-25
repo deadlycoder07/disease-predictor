@@ -1,13 +1,15 @@
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
-
-from .models import Diseases, symptoms
+from django.http import HttpResponseRedirect 
+from .models import Diseases, symptoms,alert
 from .forms import Diseaseform, Symptomform
 
 
 # Create your views here.
 def home(request):
-    return render(request, 'disease/base.html')
+    context={}
+    alerts=alert.objects.all().order_by('affected_by')
+    context['alerts']=alerts
+    return render(request, 'disease/base.html',context)
 
     
 def thanks(request):
