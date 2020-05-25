@@ -9,7 +9,7 @@ def home(request):
     context={}
     alerts=alert.objects.all().order_by('affected_by')
     context['alerts']=alerts
-    return render(request, 'disease/base.html',context)
+    return render(request, 'disease/home.html',context)
 
     
 def thanks(request):
