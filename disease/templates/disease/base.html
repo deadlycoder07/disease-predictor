@@ -40,11 +40,18 @@
   </div>
   
   <div class="nav-links">
-    <a href="/login" target="_blank">Login</a>
-    <a href="/register" target="_blank">Register</a>
-    <a href="#" target="_blank">Contact</a>
-    <a href="#" target="_blank">About us</a>
-    <a href="#" target="_blank">Privacy Policy</a>
+    {% if user.is_authenticated %}
+      <a href="#" target="_blank">Logout</a>
+      
+    {% else %}
+      <a href="/login" target="_blank">Login</a>
+      <a href="/register" target="_blank">Register</a>
+      <a href="/contact" target="_blank">Contact</a>
+      <a href="/about" target="_blank">About us</a>
+      <a href="/privacy" target="_blank">Privacy Policy</a>
+      <a href="/checkdisease" target="_blank">check</a>
+
+    {% endif %}
   </div>
 </div>
     </div>

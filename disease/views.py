@@ -4,12 +4,17 @@ from django.http import HttpResponseRedirect
 from .models import Diseases, symptoms
 from .forms import Diseaseform, Symptomform
 
+# template views start
 
-# Create your views here.
 def home(request):
-    return render(request, 'disease/base.html')
-
-    
+    return render(request, 'disease/home.html')
+def contact(request):
+    return render(request, 'disease/contact.html')
+def aboutus(request):
+    return render(request, "disease/aboutus.html")
+def privacy(request):
+    return render(request, 'disease/privacy.html')
+     
 def thanks(request):
     return render(request, 'disease/thanks.html')
 
