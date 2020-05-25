@@ -1,20 +1,17 @@
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
-
-from .models import Diseases, symptoms
+from django.http import HttpResponseRedirect 
+from .models import Diseases, symptoms,alert
 from .forms import Diseaseform, Symptomform
 
-# template views start
 
+# Create your views here.
 def home(request):
-    return render(request, 'disease/home.html')
-def contact(request):
-    return render(request, 'disease/contact.html')
-def aboutus(request):
-    return render(request, "disease/aboutus.html")
-def privacy(request):
-    return render(request, 'disease/privacy.html')
-     
+    context={}
+    alerts=alert.objects.all().order_by('affected_by')
+    context['alerts']=alerts
+    return render(request, 'disease/home.html',context)
+
+    
 def thanks(request):
     return render(request, 'disease/thanks.html')
 
