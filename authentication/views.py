@@ -5,7 +5,7 @@ from .forms import RegistrationForm, ClinicInfoForm, HospitalInfoForm
 from .models import CustomUser, Clinic, Hospital
 from django.contrib import messages
 # Create your views here.
-
+from django.contrib.auth.hashers import make_password
 
 # Login View
 
@@ -57,6 +57,10 @@ def registerView(request, role):
             if user_form.is_valid() and info_form.is_valid():
                 user = user_form.save(commit=False)
                 user.role = role
+                password=user_form.cleaned_data['password']
+                user.password= make_password(password,
+                                  salt=None,
+                                  hasher='pbkdf2_sha256')
                 user.save()
 
                 info = info_form.save(commit=False)
