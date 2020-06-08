@@ -22,6 +22,8 @@ def privacy(request):
 def thanks(request):
     return render(request, 'disease/thanks.html')
 
+def Hhome(request):
+    return render(request, 'disease/HospitalDash.html')
     
 def diseaseview(request):
     if request.method == "POST":
