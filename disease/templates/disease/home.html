@@ -31,49 +31,16 @@
   <div class="head">
     <h3>Top Diseases in your area :</h3>
   </div>
+  {% for alert in alerts %}
   <div class="alert-card" style="border-right-color:#cc0000;">
     <div class="column-1">
-      <h4>DiseaseName</h4>
-      <p>some description here. some description here. some description here. some description here. some description here. some description here. some description here. some description here. some description here. </p>
+      <h4>{{alert.disease}}</h4>
+      <p>{{ alert.symptoms}} </p>
     </div>
-    <div class="column-2"><h2>10</h2></div>
+    <div class="column-2"><h2>{{alert.people_affected}}</h2></div>
   </div>
-  <div class="alert-card" style="border-right-color:#cc2200;">
-    <div class="column-1">
-      <h4>DiseaseName</h4>
-      <p>some description here. some description here. some description here. some description here. some description here. some description here. some description here. some description here. some description here. </p>
-    </div>
-    <div class="column-2"><h2>10</h2></div>
-  </div>
-  <div class="alert-card" style="border-right-color:#cc4400;">
-   <div class="column-1">
-      <h4>DiseaseName</h4>
-      <p>some description here. some description here. some description here. some description here. some description here. some description here. some description here. some description here. some description here. </p>
-    </div>
-    <div class="column-2"><h2>10</h2></div>
-    
-  </div>
-  <div class="alert-card" style="border-right-color:#cc6600;">
-   <div class="column-1">
-      <h4>DiseaseName</h4>
-      <p>some description here. some description here. some description here. some description here. some description here. some description here. some description here. some description here. some description here. </p>
-    </div>
-    <div class="column-2"><h2>10</h2></div>
-  </div>
-  <div class="alert-card" style="border-right-color:#cc8800;">
-   <div class="column-1">
-      <h4>DiseaseName</h4>
-      <p>some description here. some description here. some description here. some description here. some description here. some description here. some description here. some description here. some description here. </p>
-    </div>
-    <div class="column-2"><h2>10</h2></div>
-  </div>
-  <div class="alert-card" style="border-right-color:#ccaa00;">
-    <div class="column-1">
-      <h4>DiseaseName</h4>
-      <p>some description here. some description here. some description here. some description here. some description here. some description here. some description here. some description here. some description here. </p>
-    </div>
-    <div class="column-2"><h2>10</h2></div>
-  </div>
+  {% endfor %}
+
   
   <!--div class="enter">
     <a href="">
@@ -81,4 +48,4 @@
 </a>
   </div-->
   
-{%endblock%}
+{% endblock%}
