@@ -41,11 +41,7 @@
   
   <div class="nav-links">
     {% if user.is_authenticated %}
-<<<<<<< HEAD
       <a href="/logout">Logout</a>
-=======
-      <a href="/logout" >Logout</a>
->>>>>>> e32ce7abe4bc761677f276b6c153c2ce4f68b09d
       
     {% else %}
        <a href="/login" >Login</a>
@@ -53,7 +49,8 @@
       <a href="/contact" >Contact</a>
       <a href="/about" >About us</a>
       <a href="/privacy" >Privacy Policy</a>
-      <a href="/checkdisease" >check</a>>
+      <a href="/checkdisease" >check by option</a>
+      <a href="/checkbyquestion" >check by answer</a>
 
     {% endif %}
   </div>
