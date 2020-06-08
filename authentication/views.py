@@ -11,7 +11,7 @@ from django.contrib.auth.hashers import make_password
 
 def loginView(request):
     if request.user.is_authenticated:
-        return redirect('/')
+        return redirect('/HospitalDashboard')
     else:
         if request.method == 'POST':
             email = request.POST.get('email')
@@ -19,7 +19,7 @@ def loginView(request):
             user = authenticate(request, email=email, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('/')
+                return redirect('/HospitalDashboard')
             else:
                 messages.info(request, "email OR Password is incorrect")
         return render(request, 'authentication/login_form.html')
@@ -40,7 +40,7 @@ def logoutView(request):
 def registerView(request, role):
     
     if request.user.is_authenticated:
-        return redirect('/')
+        return redirect('/HospitalDashboard')
     else:
         user_form = RegistrationForm()
         if role == "clinic":
