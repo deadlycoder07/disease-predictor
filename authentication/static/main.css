@@ -1,0 +1,297 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
+html {
+  height: 100%;
+  width: 100%;
+  font-family: "Ubuntu", sans-serif;
+  overflow: hidden;
+  background-image: linear-gradient(360deg, #181818 50%, #f0f0f0 74%);
+}
+body {
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 100%;
+  width: 100%;
+  background-color: #000;
+  font-family: "Ubuntu", sans-serif;
+  background-image: linear-gradient(360deg, #181818 50%, #f0f0f0 74%);
+}
+.info {
+  text-align: left;
+  background-color: #fff;
+  color: #222222;
+  box-sizing: border-box;
+
+  width: 94%;
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 5px;
+  padding-left: 10px;
+  border-radius: 0px;
+  margin-top: 70px;
+  border-top: 4px solid #bbb;
+  border-bottom: 4px solid #000;
+}
+/*-----------navbar--------------------*/
+.nav-wrap {
+  margin: 0 auto;
+  width: 100%;
+  position: fixed;
+}
+.nav {
+  margin: 0 auto;
+  height: 50px;
+  width: 100%;
+  max-width: 900px;
+  background-color: #f0f0f0;
+  box-shadow: 0px 4px 6px rgba(20, 20, 20, 0.35);
+  position: relative;
+  border-bottom-right-radius: 9px;
+  border-bottom-left-radius: 9px;
+
+  top: 0;
+}
+
+.nav > .nav-header {
+  display: inline;
+}
+
+.nav > .nav-header > .nav-title {
+  display: inline-block;
+  font-size: 22px;
+  color: #000;
+  padding: 10px 10px 10px 10px;
+}
+
+.nav > .nav-btn {
+  display: none;
+}
+
+.nav > .nav-links {
+  display: inline;
+  float: right;
+  font-size: 18px;
+}
+
+.nav > .nav-links > a {
+  display: inline-block;
+  padding: 13px 10px 13px 10px;
+  text-decoration: none;
+  color: #000;
+}
+
+.nav > .nav-links > a:hover {
+  background-color: rgba(0, 0, 20, 0.2);
+}
+
+.nav > #nav-check {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .nav > .nav-btn {
+    display: inline-block;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+  }
+  .nav > .nav-btn > label {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    padding: 13px;
+  }
+  .nav > .nav-btn > label:hover,
+  .nav #nav-check:checked ~ .nav-btn > label {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  .nav > .nav-btn > label > span {
+    display: block;
+    width: 25px;
+    height: 10px;
+    border-top: 2px solid #000;
+  }
+  .nav > .nav-links {
+    position: absolute;
+    display: block;
+    width: 100%;
+    background-color: #f0f0f0;
+    height: 0px;
+    transition: all 0.3s ease-in;
+    overflow-y: hidden;
+    top: 50px;
+    left: 0px;
+  }
+  .nav > .nav-links > a {
+    display: block;
+    width: 100%;
+  }
+  .nav > #nav-check:not(:checked) ~ .nav-links {
+    height: 0px;
+  }
+  .nav > #nav-check:checked ~ .nav-links {
+    height: calc(100vh - 50px);
+    overflow-y: auto;
+  }
+}
+/*-----------navbar--------------------*/
+.top {
+  margin: 0 auto;
+  text-align: center;
+  width: 80%;
+  max-width: 700px;
+  margin-top: 70px;
+}
+
+#safety {
+  margin: 0 auto;
+  text-align: center;
+  display: block;
+  contect-align: center;
+  width: 80%;
+  max-width: 700px;
+}
+
+.progress {
+  background: #000;
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#dddddd),
+    to(#e9e5e2)
+  );
+  background-image: -webkit-linear-gradient(top, #dddddd, #e9e5e2);
+  background-image: -moz-linear-gradient(top, #dddddd, #e9e5e2);
+  background-image: -ms-linear-gradient(top, #dddddd, #e9e5e2);
+  background-image: -o-linear-gradient(top, #dddddd, #e9e5e2);
+  background-image: linear-gradient(top, #dddddd, #e9e5e2);
+  height: 20px;
+  border-radius: 0px;
+  -moz-box-shadow: 0 1px 0px #bebbb9 inset, 0 1px 0 #fcfcfc;
+  -webkit-box-shadow: 0 1px 0px #bebbb9 inset, 0 1px 0 #fcfcfc;
+  box-shadow: 0 1px 0px #bbbbbb inset, 0 1px 0 #fcfcfc;
+}
+
+.dms {
+  -webkit-transition: width 4.5s ease !important;
+  -moz-transition: width 4.5s ease !important;
+  -o-transition: width 4.5s ease !important;
+  transition: width 4.5s ease !important;
+}
+
+.alert-card {
+  text-align: center;
+  background-color: #dddddd;
+  color: #111111;
+  box-sizing: border-box;
+  box-shadow: 6px 6px 6px rgba(20, 20, 20, 0.4);
+  width: 90%;
+  max-width: 700px;
+  margin: 20px auto;
+  padding: 5px;
+  border-radius: 9px;
+  border-right: 30px solid #000;
+  border-right-color: #000;
+  display: table;
+}
+
+.alert-card .column-1 {
+  display: table-cell;
+  text-align: left;
+}
+.alert-card .column-2 {
+  width: 100px;
+  display: table-cell;
+  text-align: right;
+  vertical-align: middle;
+}
+@media only screen and (max-width: 499px) {
+  .alert-card .column-2 {
+    width: 30px;
+  }
+}
+
+.head {
+  text-align: center;
+}
+
+.enter {
+  text-align: center;
+  margin: 30px auto;
+}
+
+.enter a {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 200px;
+  height: 50px;
+  margin: auto;
+  background-color: #fff;
+  border-radius: 9px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+
+  color: black;
+  overflow: hidden;
+}
+
+/*--------------------heading-----------------*/
+
+@-webkit-keyframes animationgradienttitle {
+  0% {
+    background-position: 0 1600px;
+  }
+  100% {
+    background-position: 1600px 0;
+  }
+}
+@keyframes animationgradienttitle {
+  0% {
+    background-position: 0 1600px;
+  }
+  100% {
+    background-position: 1600px 0;
+  }
+}
+
+h1 {
+  margin: 0;
+}
+
+.c-article {
+  margin-top: 70px;
+  text-align: center;
+}
+
+.c-article__header {
+}
+
+.c-article__title {
+  font-size: 35px;
+  color: #000;
+  background: -webkit-linear-gradient(left, #f0f0f0, #880000, #880000);
+  background-size: 1600px 200px;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation-duration: 3s;
+  animation-duration: 3s;
+  -webkit-animation-name: animationgradienttitle;
+  animation-name: animationgradienttitle;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+@media only screen and (max-width: 499px) {
+  .c-article__title {
+    font-size: 25px;
+  }
+}
+
+/*--------------------heading-----------------*/
