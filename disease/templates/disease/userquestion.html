@@ -1,8 +1,14 @@
 {% extends 'disease/base.html' %}
 {% block content %}
-    <form method="POST">
+
+    {% for q in ques %}
+        {{q}}
+        <form method="POST">
         {% csrf_token %}
-        {{ form }}
-        <button type="submit">Submit</button>
+        {{ form.as_p }}
+        
     </form>
+    {% endfor %}
+    <button type="submit">Submit</button>
+    
 {%endblock%}
