@@ -91,6 +91,8 @@ def qanalysis(request):
 
 
 def userquestion(request):
+    ques = question.objects.all()
+
     if request.method == "POST":
         form = QuestionForm(request.POST)
         if form.is_valid():
@@ -98,7 +100,9 @@ def userquestion(request):
             return render(request, 'disease/analysis.html')
     else:
         form = QuestionForm()
-    return render(request, 'disease/userquestion.html', {'form' : form})
+
+    return render(request, 'disease/userquestion.html', {'form' : form, 'ques': ques})
+
 
 
 
@@ -176,3 +180,5 @@ def pages(request):
     except:
         template = loader.get_template( 'pages/error-404.html' )
         return HttpResponse(template.render(context, request))
+
+   

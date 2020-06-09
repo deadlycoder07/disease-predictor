@@ -7,7 +7,7 @@
       </button>
       <!-- Brand -->
       <a class="navbar-brand pt-0" href="/">
-        <img src="/static/assets/img/brand/blue.png" class="navbar-brand-img" alt="...">
+       <h1>DMS</h1>
       </a>
       <!-- User -->
       <ul class="nav align-items-center d-md-none">
@@ -31,7 +31,7 @@
           <div class="row">
             <div class="col-6 collapse-brand">
               <a href="./index.html">
-                <img src="/static/assets/img/brand/blue.png">
+                <h1>DMS</h1>
               </a>
             </div>
             <div class="col-6 collapse-close">
@@ -49,19 +49,30 @@
           <a class=" nav-link active text-light fade-in-left " href="/"><i class="fas fa-home text-primary "></i>Home
             </a>
           </li>
-
+         {% if user.is_authenticated %}
           <li class="nav-item maps-item">
-            <a class="nav-link text-light fade-in-left " href="/maps.html">
-              <i class="fas fa-map-marked-alt text-warning"></i>Maps
+            <a class="nav-link text-light fade-in-left " href="/logout">
+              <i class="fas fa-map-marked-alt text-warning"></i>Logout
             </a>
           </li>
+          {% else %}
 
           <li class="nav-item tables-item">
-            <a class="nav-link text-light fade-in-left" href="/tables.html">
-              <i class="fas fa-table text-info"></i>Tables
+            <a class="nav-link text-light fade-in-left" href="/Login">
+              <i class="fas fa-table text-info"></i>Login
             </a>
           </li>
-
+           <li class="nav-item tables-item">
+            <a class="nav-link text-light fade-in-left" href="/register">
+              <i class="fas fa-table text-info"></i>Register
+            </a>
+          </li>
+           <li class="nav-item tables-item">
+            <a class="nav-link text-light fade-in-left" href="/about">
+              <i class="fas fa-table text-info"></i>About Us
+            </a>
+          </li>
+         {% endif %}
         </ul>
         <!-- Divider -->
         <hr class="my-3">
@@ -70,7 +81,7 @@
         <ul class="navbar-nav mb-md-3 ">
 
           <li class="nav-item">
-            <a class="nav-link text-muted fade-in-left" href="https://github.com/BrianRuizy/covid-19-dashboard" target="_blank">
+            <a class="nav-link text-muted fade-in-left" href="https://github.com/deadlycoder07/disease-predictor" target="_blank">
               <i class="fab fa-github " style="font-size:1.1rem;"></i>Code
             </a>
           </li>
