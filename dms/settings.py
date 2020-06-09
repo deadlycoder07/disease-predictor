@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'authentication',
     'disease',
-    'ml'
+    'ml',
+    'django.contrib.humanize',
+    
     
 ]
 SITE_ID = 1
@@ -68,6 +70,10 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+             'libraries': {
+                'trend': 'disease.templatetags.trend',
+
+            }
         },
     },
 ]

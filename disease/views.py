@@ -3,13 +3,14 @@ from django.http import HttpResponseRedirect
 from .models import Diseases, symptoms, alert, question, answer
 from .forms import Diseaseform, Symptomform, QuestionForm
 
+from django.http import HttpResponse
+from django.shortcuts import get_object_or_404, redirect, render
+from django.template import loader
+
+from . import getdata, plots, maps
 
 
-def home(request):
-    context={}
-    alerts=alert.objects.all().order_by('people_affected')
-    context['alerts']=alerts
-    return render(request, 'disease/home.html',context)
+
 
 def contact(request):
     return render(request, 'disease/contact.html')
