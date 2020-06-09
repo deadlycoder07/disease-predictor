@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect 
+from authentication.models import Clinic
 from .models import Diseases, symptoms, alert, question
 from .forms import Diseaseform, Symptomform, QuestionForm
 from . import models
@@ -110,7 +111,7 @@ def userquestion(request):
             cl = Clinic.objects.all().filter(pincode = a6)
 
             #print(a1)
-            return render(request, 'disease/analysis.html', {'text': st, 'pin': a6, 'clinic': cl})
+            return render(request, 'disease/analysis.html', {'text': st, 'pin': a6, 'clinics': cl})
     else:
         form = QuestionForm()
 

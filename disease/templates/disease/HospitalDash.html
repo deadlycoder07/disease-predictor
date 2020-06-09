@@ -1,4 +1,4 @@
-{% extends "disease/base.html" %} {% block content %}
+{% extends "layouts/base.html" %} {% block content %}
 
 <style>
   .Dbtn {
@@ -122,8 +122,8 @@
     {
       date: "2012-01-01",
       disease: 227,
-      townName: "City1",
-      townName2: "City1",
+      townName: "Corona",
+      townName2: "Corona",
       townSize: 25,
       latitude: 40.71,
       Recovered: 408,
@@ -131,7 +131,7 @@
     {
       date: "2012-01-02",
       disease: 371,
-      townName: "City2",
+      townName: "flu",
       townSize: 14,
       latitude: 38.89,
       Recovered: 482,
@@ -155,8 +155,8 @@
     {
       date: "2012-01-05",
       disease: 480,
-      townName: "City5",
-      townName2: "City5",
+      townName: "fever",
+      townName2: "fever",
       townSize: 10,
       latitude: 25.83,
       Recovered: 501,
@@ -164,93 +164,12 @@
     {
       date: "2012-01-06",
       disease: 386,
-      townName: "City6",
+      townName: "cancer",
       townSize: 7,
       latitude: 30.46,
       Recovered: 443,
     },
-    {
-      date: "2012-01-07",
-      disease: 348,
-      townName: "City7",
-      townSize: 10,
-      latitude: 29.94,
-      Recovered: 405,
-    },
-    {
-      date: "2012-01-08",
-      disease: 238,
-      townName: "City8",
-      townName2: "City8",
-      townSize: 16,
-      latitude: 29.76,
-      Recovered: 309,
-    },
-    {
-      date: "2012-01-09",
-      disease: 218,
-      townName: "City9",
-      townSize: 17,
-      latitude: 32.8,
-      Recovered: 287,
-    },
-    {
-      date: "2012-01-10",
-      disease: 349,
-      townName: "City10",
-      townSize: 11,
-      latitude: 35.49,
-      Recovered: 485,
-    },
-    {
-      date: "2012-01-11",
-      disease: 603,
-      townName: "City11",
-      townSize: 10,
-      latitude: 39.1,
-      Recovered: 890,
-    },
-    {
-      date: "2012-01-12",
-      disease: 534,
-      townName: "City12",
-      townName2: "City12",
-      townSize: 18,
-      latitude: 39.74,
-      Recovered: 810,
-    },
-    {
-      date: "2012-01-13",
-      townName: "City13",
-      townSize: 12,
-      disease: 425,
-      Recovered: 670,
-      latitude: 40.75,
-      alpha: 0.4,
-    },
-    {
-      date: "2012-01-14",
-      latitude: 36.1,
-      Recovered: 470,
-      townName: "City14",
-      townName2: "City15",
-      bulletClass: "lastBullet",
-    },
-    {
-      date: "2012-01-15",
-    },
-    {
-      date: "2012-01-16",
-    },
-    {
-      date: "2012-01-17",
-    },
-    {
-      date: "2012-01-18",
-    },
-    {
-      date: "2012-01-19",
-    },
+    
   ];
   var chart = AmCharts.makeChart("chartdiv", {
     type: "serial",
@@ -340,7 +259,7 @@
         id: "g2",
         valueField: "latitude",
         classNameField: "bulletClass",
-        title: "latitude/city",
+        title: "disease overiew",
         type: "line",
         valueAxis: "a2",
         lineColor: "#786c56",
