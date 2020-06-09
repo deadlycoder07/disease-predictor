@@ -1,6 +1,38 @@
-{% extends "disease/base.html" %}
+{% extends "layouts/base.html" %}
 {% block content %}
+<div class="container"
+   <div class="row">
+            <div class="card shadow card-stats mb-4 mb-xl-0 fade-in-top">
+                <div class="card-body ">
+                <div class="row">
+                    <div class="col">
+                    <h5 class="card-title text-uppercase text-muted mb-0"><p> Here is your Analysis. {{text}}</p></h5>
+                    <span class="h2 font-weight-bold mb-0"></span>
+                    </div>
+                    <div class="col-auto">
+                    <div class="icon icon-shape bg-primary text-white rounded-circle shadow">
+                        <i class="fas fa-virus"></i>
+                    </div>
+                    </div>
+                </div>
 
-   <p> Here is your Analysis. {{text}}</p>
+                </div>
+            </div>
+         
+   </div>
+    <p>
+   Protect yourself and others around you by knowing the facts and taking appropriate precautions. Follow advice provided by your local public health agency.
+To prevent the spread of COVID-19:
+Clean your hands often. Use soap and water, or an alcohol-based hand rub.
+Maintain a safe distance from anyone who is coughing or sneezing.
+Don’t touch your eyes, nose or mouth.
+Cover your nose and mouth with your bent elbow or a tissue when you cough or sneeze.
+Stay home if you feel unwell.
+If you have a fever, cough and difficulty breathing, seek medical attention. Call in advance.
+Follow the directions of your local health authority.
+Avoiding unneeded visits to medical facilities allows healthcare systems to operate more effectively, therefore protecting you and others.
+    </p>
+</div>
+   
   
 {%endblock%}

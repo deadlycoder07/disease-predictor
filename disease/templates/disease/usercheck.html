@@ -1,16 +1,27 @@
-{% extends 'disease/base.html' %}
+{% extends 'layouts/base.html' %}
+<head>
+ <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.5/dist/semantic.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.5/dist/semantic.min.js"></script>
+  <link href="/static/assets/css/tokenize2.css" rel="stylesheet" />
+  <script src="/static/assets/js/tokenize2.js"></script>
+</head>
+<script>
+$('.demo').tokenize2();
+</script>
 {% block content %}
-    <form method="POST">
-        {% csrf_token %}
-        {{ form }}
-        
-        <select class="ui fluid search dropdown" multiple="">
-            <option value="">Symptoms</option>
-            {% for s in symp %}
-
-                <option value="">{{s}}</option>
-            {% endfor %}
-        </select>
-        <button type="submit">Submit</button>
-    </form>
+ <select class="demo multiple">
+  <option value="1">Acura</option>
+  <option value="2">Audi</option>
+  <option value="3">BMW</option>
+  <option value="4">Cadillac</option>
+  <option value="5">Chevrolet</option>
+  <option value="6">Ferrari</option>
+  <option value="7">Ford</option>
+  <option value="8">Honda</option>
+  <option value="9">Lexus</option>
+  <option value="10">Mercedes-Benz</option>
+</select>
+<script>
+$('.demo').tokenize2();
+</script>
 {%endblock%}
