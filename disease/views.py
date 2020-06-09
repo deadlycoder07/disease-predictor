@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect 
-from .models import Diseases, symptoms, alert, question, answer
+from .models import Diseases, symptoms, alert, question
 from .forms import Diseaseform, Symptomform, QuestionForm
 
 from django.http import HttpResponse
@@ -75,33 +75,34 @@ def analysis(request):
     return render(request, 'disease/analysis.html')
 
 def qanalysis(request):
-    ans = answer.objects.all()
-    field = answer._meta.fields
+    #ans = answer.objects.all()
+    #field = answer._meta.fields
 
-    data_ans = str(getattr(ans, str(field), 'null'))
+    #data_ans = str(getattr(ans, str(field), 'null'))
 
-    if("," in data_ans):
-        data_ans = data_ans.split(",")
-    else:
-        data_ans = data_ans.strip(" ")
+    #if("," in data_ans):
+    #    data_ans = data_ans.split(",")
+    #else:
+    #    data_ans = data_ans.strip(" ")
 
-    answer.objects.all().delete()
+    #answer.objects.all().delete()
 
     return render(request, 'disease/analysis.html')
 
 
 def userquestion(request):
-    ques = question.objects.all()
+    #ques = question.objects.all()
 
     if request.method == "POST":
         form = QuestionForm(request.POST)
         if form.is_valid():
             form.save()
+            
             return render(request, 'disease/analysis.html')
     else:
         form = QuestionForm()
 
-    return render(request, 'disease/userquestion.html', {'form' : form, 'ques': ques})
+    return render(request, 'disease/userquestion.html', {'form' : form})
 
 
 

@@ -1,5 +1,5 @@
 from django import forms
-from .models import Diseases, symptoms, question, answer
+from .models import Diseases, symptoms, question
 
 
 # create forms
@@ -18,5 +18,5 @@ class Symptomform(forms.ModelForm):
 
 class QuestionForm(forms.ModelForm):
     class Meta:
-        model = answer
+        model = question
         fields = "__all__"

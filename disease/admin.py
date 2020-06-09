@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Diseases, symptoms, question,alert
+from .models import Diseases, symptoms, question, alert
 
 # Register your models here.
 

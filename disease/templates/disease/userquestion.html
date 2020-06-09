@@ -1,14 +1,167 @@
-{% extends 'disease/base.html' %}
-{% block content %}
+{% extends "disease/base.html" %} {% block content %}
+<link
+  href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet"
+/>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css"
+/>
+<style>
+  #login {
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 100px;
+  }
+  .container {
+    margin-top: 50px;
+  }
 
-    {% for q in ques %}
-        {{q}}
-        <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        
-    </form>
-    {% endfor %}
-    <button type="submit">Submit</button>
-    
+  .input-field input[type="date"]:focus + label,
+  .input-field input[type="text"]:focus + label,
+  .input-field input[type="email"]:focus + label,
+  .input-field input[type="password"]:focus + label {
+    color: #e91e63;
+  }
+
+  .input-field input[type="date"]:focus,
+  .input-field input[type="text"]:focus,
+  .input-field input[type="email"]:focus,
+  .input-field input[type="password"]:focus {
+    border-bottom: 2px solid #e91e63;
+    box-shadow: none;
+  }
+</style>
+<div>
+ 
+  <div id="login">
+    <article class="c-article">
+      <header class="c-article__header">
+        <h1 class="c-article__title">
+          Add a disease
+        </h1>
+      </header>
+    </article>
+
+    <!-- <form action="" method="post">
+          {% csrf_token %} {{user_form.as_p}} {{info_form.as_p}}
+          <input type="submit" />
+        </form> -->
+    <div class="container">
+      <div
+        class="z-depth-1 grey lighten-4 row"
+        style="
+          width: 80%;
+          max-width: 700px;
+          display: inline-block;
+          padding: 32px 48px 0px 48px;
+          border: 1px solid #eee;
+        "
+      >
+        <form
+          class="col s20"
+          style="width: 100%; max-width: 600px;"
+          action=""
+          method="POST"
+        >
+          {% csrf_token %}
+          <div class="row">
+            <div class="col s12"></div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input
+                id="email-field"
+                type="text"
+                name="q1"
+                placeholder="Are you feeling well ?"
+              />
+            </div>
+          </div>
+          <br />
+                    <div class="row">
+            <div class="input-field col s12">
+              <input
+                id="email-field"
+                type="text"
+                name="q2"
+                placeholder="Do you have the following symptoms like fever, chills, body ache, sore throat, tiredness or rash on skin?"
+              />
+            </div>
+          </div>
+          <br />
+                    <div class="row">
+            <div class="input-field col s12">
+              <input
+                id="email-field"
+                type="text"
+                name="q3"
+                placeholder="Are there cases of Corona positive in your locality ?"
+              />
+            </div>
+          </div>
+          <br />
+                    <div class="row">
+            <div class="input-field col s12">
+              <input
+                id="email-field"
+                type="text"
+                name="q4"
+                placeholder="Have you been to the doctor ?"
+              />
+            </div>
+          </div>
+          <br />
+                    <div class="row">
+            <div class="input-field col s12">
+              <input
+                id="email-field"
+                type="text"
+                name="q4"
+                placeholder=""
+              />
+            </div>
+          </div>
+          <br />
+                    <div class="row">
+            <div class="input-field col s12">
+              <input
+                id="email-field"
+                type="text"
+                name="q5"
+                placeholder="Have you felt the loss of taste ?"
+              />
+            </div>
+          </div>
+          <br />
+                    <div class="row">
+            <div class="input-field col s12">
+              <input
+                id="email-field"
+                type="text"
+                name="q6"
+                placeholder="What is your pincode ?"
+              />
+            </div>
+          </div>
+          <br />
+          
+          <center>
+            <div class="row">
+              <input
+                name="btn_login"
+                id="submit-btn"
+                class="col s12 btn btn-large waves-effect indigo"
+                type="submit"
+                value="submit"
+              />
+            </div>
+          </center>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
 {%endblock%}
