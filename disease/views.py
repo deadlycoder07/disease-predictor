@@ -4,6 +4,7 @@ from .models import Diseases, symptoms, alert, question, answer
 from .forms import Diseaseform, Symptomform, QuestionForm
 
 
+
 def home(request):
     context={}
     alerts=alert.objects.all().order_by('people_affected')
