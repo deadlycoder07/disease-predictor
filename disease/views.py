@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect 
 from .models import Diseases, symptoms, alert, question
 from .forms import Diseaseform, Symptomform, QuestionForm
+from . import models
 
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
@@ -105,8 +106,11 @@ def userquestion(request):
                 st = "You are at risk"
             else:
                 st = "You are safe"
+
+            cl = Clinic.objects.all().filter(pincode = a6)
+
             #print(a1)
-            return render(request, 'disease/analysis.html', {'text': st, 'pin': a6})
+            return render(request, 'disease/analysis.html', {'text': st, 'pin': a6, 'clinic': cl})
     else:
         form = QuestionForm()
 
