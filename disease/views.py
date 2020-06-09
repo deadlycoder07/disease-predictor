@@ -92,13 +92,21 @@ def qanalysis(request):
 
 def userquestion(request):
     #ques = question.objects.all()
-
+    st = ""
     if request.method == "POST":
         form = QuestionForm(request.POST)
         if form.is_valid():
             form.save()
-            
-            return render(request, 'disease/analysis.html')
+            a2 = str(request.POST["q2"])
+            a4 = str(request.POST["q4"])
+            a5 = str(request.POST["q5"])
+            a6 = str(request.POST["q6"])
+            if(a2 == "YES" or a4 == "YES" or a5 == "YES"):
+                st = "You are at risk"
+            else:
+                st = "You are safe"
+            #print(a1)
+            return render(request, 'disease/analysis.html', {'text': st, 'pin': a6})
     else:
         form = QuestionForm()
 
