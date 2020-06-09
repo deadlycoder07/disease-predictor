@@ -76,3 +76,6 @@ def registerView(request, role):
         'info_form':info_form,
     }
     return render(request, 'authentication/register_form.html', context)
+
+
+

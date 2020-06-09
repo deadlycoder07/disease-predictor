@@ -99,7 +99,7 @@ class Hospital(models.Model):
     pincode = models.IntegerField(null=True)
 
     def __str__(self):
-        return self.name
+        return self.pincode
 
 
 class Clinic(models.Model):
@@ -119,6 +119,6 @@ class Clinic(models.Model):
 
 
     def __str__(self):
-        return self.name
+        return self.pincode
     
 
