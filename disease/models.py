@@ -63,12 +63,9 @@ class symptoms(models.Model):
     symptom = models.TextField()
 
 class question(models.Model):
-    id = models.AutoField(primary_key = True)
-    question = models.CharField(max_length = 200)
-    
-    def __str__(self):
-        return self.question
-
-class answer(models.Model):
-   
-    ans = models.CharField(max_length = 10)
+    q1 = models.CharField(max_length = 10, default = False)
+    q2 = models.CharField(max_length = 10, default = False)
+    q3 = models.CharField(max_length = 10, default = False)
+    q4 = models.CharField(max_length = 10, default = False)
+    q5 = models.CharField(max_length = 10, default = False)
+    q6 = models.CharField(max_length = 10, default = False)
