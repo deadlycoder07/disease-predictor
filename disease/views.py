@@ -6,7 +6,7 @@ from .forms import Diseaseform, Symptomform, QuestionForm
 
 def home(request):
     context={}
-    alerts=alert.objects.all().order_by('affected_by')
+    alerts=alert.objects.all().order_by('people_affected')
     context['alerts']=alerts
     return render(request, 'disease/home.html',context)
 
