@@ -13,6 +13,9 @@ django-rest-auth==0.9.5
 djangorestframework==3.11.0
 djangorestframework-jwt==1.11.0
 djangorestframework-simplejwt==4.4.0
+django-heroku==0.3.1
+gunicorn==20.0.4
+psycopg2==2.8.5
 entrypoints==0.3
 idna==2.9
 ipykernel==5.2.1
